@@ -1,0 +1,467 @@
+.local-banner {
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  padding: 12px 16px;
+  background: rgba(255, 248, 235, 0.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(170, 135, 77, 0.28);
+  font: 600 13px/1.4 Manrope, sans-serif;
+  color: #6b5a32;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+
+.custom-events {
+  position: relative;
+  display: none;
+  overflow: hidden;
+  padding: 72px 24px 88px;
+  background:
+    #62b5ad
+    url("../../framerusercontent.com/images/cyIPT3IPm257uiP1lpxhaxTt8E.png?width=1386&height=5741")
+    center / cover no-repeat;
+}
+
+.custom-events::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(76, 154, 146, 0.22);
+}
+
+.custom-events__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1520px;
+  margin: 0 auto;
+}
+
+.custom-events__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 42px 54px;
+}
+
+.custom-event-card {
+  position: relative;
+  display: flex;
+  min-height: 520px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 78px 42px 52px;
+  text-align: center;
+  background:
+    url("../../framerusercontent.com/images/z8fNGgEf83GUW8GN7ddabomNq0.png?width=774&height=952")
+    center / 100% 100% no-repeat;
+  filter: drop-shadow(0 18px 24px rgba(16, 72, 72, 0.24));
+}
+
+.custom-event-card::before,
+.custom-event-card::after {
+  content: "";
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: contain;
+  pointer-events: none;
+}
+
+.custom-event-card::before {
+  top: -34px;
+  right: -10px;
+  width: 142px;
+  height: 152px;
+  background-image:
+    url("../../framerusercontent.com/images/FLSOOveTOLX34LMuvOegzZoZ2eo.png?width=1094&height=1166");
+}
+
+.custom-event-card::after {
+  bottom: 18px;
+  left: -14px;
+  width: 122px;
+  height: 132px;
+  background-image:
+    url("../../framerusercontent.com/images/ndc7VHWOkcPiELsDteUplHBg.png?width=1103&height=1174");
+}
+
+.custom-event-card h3 {
+  margin: 0;
+  font: 400 clamp(40px, 3.1vw, 58px) / 1 "Aboreto", serif;
+  letter-spacing: 0.08em;
+  color: #096929;
+  text-transform: uppercase;
+}
+.custom-event-card p {
+  margin: 0;
+  color: #086b29;
+}
+
+.custom-event-meta {
+  display: grid;
+  gap: 6px;
+}
+
+.custom-event-meta p {
+  font: 400 18px/1.25 "Cormorant", serif;
+}
+
+.custom-event-link {
+  font: 700 17px/1 "Cormorant", serif;
+  color: #549a7a;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.framer-PPAEO .framer-4rlk9i {
+  width: clamp(430px, 58vw, 820px) !important;
+  max-width: 94vw !important;
+  margin-inline: auto !important;
+}
+
+.framer-4rlk9i {
+  aspect-ratio: 400 / 506 !important;
+  height: auto !important;
+  width: 100% !important;
+  overflow: visible !important;
+}
+
+.framer-4rlk9i > [data-framer-background-image-wrapper="true"] {
+  z-index: 2;
+  pointer-events: none;
+  transform: scale(1.04);
+  transform-origin: center;
+}
+
+.framer-4rlk9i > [data-framer-background-image-wrapper="true"] img {
+  object-fit:contain !important;
+  object-position: center !important;
+}
+
+.framer-4rlk9i .photo-inside-frame {
+  position: absolute;
+  z-index: 1;
+
+  top: 30%;
+  left: 23%;
+  bottom: 0%;
+  position:fill;
+  display: flex;
+  align-items: center;
+  width: 56%;
+  height: 64%;
+
+  overflow: hidden;
+  border-radius: 44% 44% 34% 34% / 18% 18% 12% 12%;
+  background: #efe5bf;
+}
+
+.framer-4rlk9i .photo-inside-frame img {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+  object-position: center;
+
+  opacity: 0;
+  animation: weddingPhotoFadeSlide 32s infinite;
+}
+
+.framer-4rlk9i .photo-inside-frame img:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.framer-4rlk9i .photo-inside-frame img:nth-child(2) {
+  animation-delay: 4s;
+}
+
+.framer-4rlk9i .photo-inside-frame img:nth-child(3) {
+  animation-delay: 8s;
+}
+
+.framer-4rlk9i .photo-inside-frame img:nth-child(4) {
+  animation-delay: 12s;
+}
+
+.framer-4rlk9i .photo-inside-frame img:nth-child(5) {
+  animation-delay: 16s;
+}
+.framer-4rlk9i .photo-inside-frame img:nth-child(6) {
+  animation-delay: 20s;
+}
+.framer-4rlk9i .photo-inside-frame img:nth-child(7) {
+  animation-delay: 24s;
+}
+.framer-4rlk9i .photo-inside-frame img:nth-child(8) {
+  animation-delay: 28s;
+}
+
+@keyframes weddingPhotoFadeSlide {
+  0% {
+    opacity: 0;
+    transform: translateX(18px) scale(1);
+  }
+
+  8% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+
+  22% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+
+  30% {
+    opacity: 0;
+    transform: translateX(-18px) scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(-18px) scale(1);
+  }
+}
+.invite-footer {
+  position: relative;
+  overflow: hidden;
+  padding: 96px 24px 112px;
+  background:
+    linear-gradient(180deg, rgba(246, 237, 212, 0.96), rgba(236, 223, 190, 0.96)),
+    url("../../framerusercontent.com/images/7Rkp2TXFX8Lomrn68coHcBaIdpY.png?width=1536&height=1625")
+    center / cover no-repeat;
+}
+
+.invite-footer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 249, 236, 0.3);
+  pointer-events: none;
+}
+
+.invite-footer__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1180px;
+  margin: 0 auto;
+  display: grid;
+  gap: 56px;
+}
+
+.invite-footer__countdown {
+  display: grid;
+  gap: 18px;
+  justify-items: center;
+  text-align: center;
+  color: #7b5d1f;
+}
+
+.invite-footer__eyebrow {
+  margin: 0;
+  font: 400 clamp(34px, 5vw, 58px) / 1 "Cormorant Upright", serif;
+}
+
+.invite-footer__copy {
+  max-width: 640px;
+  margin: 0;
+  font: 400 18px/1.5 "Cormorant", serif;
+  color: #876a2a;
+}
+
+.invite-footer__timer {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  width: min(100%, 760px);
+}
+
+.invite-footer__unit {
+  display: grid;
+  gap: 8px;
+  padding: 18px 14px;
+  border: 1px solid rgba(153, 117, 42, 0.22);
+  border-radius: 28px;
+  background: rgba(255, 253, 247, 0.78);
+  box-shadow: 0 16px 32px rgba(127, 101, 39, 0.12);
+}
+
+.invite-footer__value {
+  font: 600 clamp(32px, 5vw, 54px) / 1 "Manrope", sans-serif;
+  color: #6d5014;
+  font-variant-numeric: tabular-nums;
+}
+
+.invite-footer__label {
+  font: 600 13px/1 "Manrope", sans-serif;
+  color: #8d7337;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.invite-footer__map {
+  display: grid;
+  gap: 20px;
+}
+
+.invite-footer__map-title {
+  margin: 0;
+  text-align: center;
+  font: 400 clamp(30px, 4vw, 46px) / 1 "Cormorant Upright", serif;
+  color: #735822;
+}
+
+.invite-footer__map-frame {
+  overflow: hidden;
+  border: 1px solid rgba(153, 117, 42, 0.22);
+  border-radius: 32px;
+  background: rgba(255, 253, 247, 0.72);
+  box-shadow: 0 20px 40px rgba(127, 101, 39, 0.12);
+}
+
+.invite-footer__map-frame iframe {
+  display: block;
+  width: 100%;
+  min-height: 420px;
+  border: 0;
+}
+
+.invite-footer__note {
+  text-align: center;
+  font: 500 14px/1.5 "Manrope", sans-serif;
+  color: #8d7337;
+}
+
+@media (max-width: 1100px) {
+  .custom-events__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 32px;
+  }
+
+  .custom-event-card {
+    min-height: 470px;
+  }
+}
+
+@media (max-width: 720px) {
+  .custom-events {
+    padding: 30px 10px 38px;
+    background-position: center top;
+  }
+
+  .custom-events__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px 10px;
+  }
+
+  .custom-event-card {
+    min-height: 266px;
+    padding: 42px 12px 24px;
+    filter: drop-shadow(0 10px 12px rgba(16, 72, 72, 0.2));
+  }
+
+  .custom-event-card h3 {
+    font-size: clamp(20px, 6.2vw, 26px);
+    letter-spacing: 0.05em;
+    line-height: 1.08;
+  }
+
+  .custom-event-meta p,
+  .custom-event-link {
+    font-size: 13px;
+  }
+
+  .custom-event-card::before {
+    top: -14px;
+    right: -3px;
+    width: 70px;
+    height: 76px;
+  }
+
+  .custom-event-card::after {
+    bottom: 8px;
+    left: -7px;
+    width: 62px;
+    height: 68px;
+  }
+
+  .framer-PPAEO .framer-4rlk9i {
+    width: min(88vw, 350px) !important;
+  }
+
+  .framer-4rlk9i .photo-inside-frame {
+    top: 28%;
+    left: 20%;
+    width: 60%;
+    height: 61%;
+  }
+
+  .invite-footer {
+    padding: 44px 12px 52px;
+  }
+
+  .invite-footer__inner {
+    gap: 26px;
+  }
+
+  .invite-footer__copy {
+    font-size: 15px;
+    line-height: 1.35;
+  }
+
+  .invite-footer__timer {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .invite-footer__unit {
+    gap: 5px;
+    padding: 12px 8px;
+    border-radius: 24px;
+  }
+
+  .invite-footer__value {
+    font-size: clamp(26px, 9vw, 38px);
+  }
+
+  .invite-footer__label {
+    font-size: 11px;
+  }
+
+  .invite-footer__map-frame {
+    border-radius: 20px;
+  }
+
+  .invite-footer__map-frame iframe {
+    min-height: 240px;
+  }
+}
+
+@media (max-width: 380px) {
+  .custom-events {
+    padding-inline: 8px;
+  }
+
+  .custom-events__grid {
+    gap: 12px 8px;
+  }
+
+  .custom-event-card {
+    min-height: 244px;
+    padding: 38px 10px 22px;
+  }
+
+  .custom-event-card h3 {
+    font-size: 19px;
+  }
+
+  .custom-event-meta p,
+  .custom-event-link {
+    font-size: 12px;
+  }
+}
