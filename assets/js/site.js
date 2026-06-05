@@ -274,6 +274,51 @@ document.addEventListener("DOMContentLoaded", () => {
     document.head.appendChild(style);
   };
 
+  const optimizeDeferredMedia = () => {
+    const criticalImageTokens = [
+      "cyIPT3IPm257uiP1lpxhaxTt8E",
+      "nc35y7b0Zuw1Gp5B9Uyd0lzjxKM",
+    ];
+    const deferredScopes = [
+      "#custom-events-section",
+      "#bride-and-groom",
+      "#location",
+      "#rsvp",
+      "#instagram",
+      "#things-to-know",
+      ".invite-footer",
+    ];
+
+    document.querySelectorAll("img").forEach((image) => {
+      const source = image.currentSrc || image.getAttribute("src") || "";
+      const isCritical = criticalImageTokens.some((token) => source.includes(token));
+
+      if (!image.hasAttribute("decoding")) {
+        image.setAttribute("decoding", "async");
+      }
+
+      if (isCritical) {
+        image.setAttribute("loading", "eager");
+        image.setAttribute("fetchpriority", "high");
+        return;
+      }
+
+      const shouldDefer = deferredScopes.some((selector) => image.closest(selector));
+      if (shouldDefer && !image.hasAttribute("loading")) {
+        image.setAttribute("loading", "lazy");
+      }
+      if (shouldDefer && !image.hasAttribute("fetchpriority")) {
+        image.setAttribute("fetchpriority", "low");
+      }
+    });
+
+    document.querySelectorAll("iframe").forEach((frame) => {
+      if (!frame.hasAttribute("loading")) {
+        frame.setAttribute("loading", "lazy");
+      }
+    });
+  };
+
   const isInVisibleTree = (node) => {
     for (let current = node; current && current !== document; current = current.parentElement) {
       const style = window.getComputedStyle(current);
@@ -312,7 +357,9 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   injectMobileHeroFix();
+  optimizeDeferredMedia();
   placeCustomEvents();
+  window.setTimeout(optimizeDeferredMedia, 250);
   window.setTimeout(placeCustomEvents, 250);
   window.setTimeout(placeCustomEvents, 1000);
 
