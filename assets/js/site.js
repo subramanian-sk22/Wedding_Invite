@@ -154,7 +154,7 @@
             </svg>
           </span>
         </button>
-        <audio preload="metadata" loop autoplay></audio>
+        <audio preload="metadata"></audio>
       `;
 
       const button = root.querySelector("button");
@@ -197,7 +197,6 @@
 
 document.addEventListener("DOMContentLoaded", () => {
   const customEvents = document.getElementById("custom-events-section");
-  const eventsAnchor = document.getElementById("events-grid-anchor");
   const countdownRoot = document.querySelector("[data-countdown-target]");
   const countdownValueNodes = countdownRoot
     ? {
@@ -208,13 +207,114 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     : null;
 
-  if (customEvents && eventsAnchor) {
-    eventsAnchor.insertAdjacentElement("afterend", customEvents);
-  }
+  const injectMobileHeroFix = () => {
+    if (document.getElementById("mobile-hero-desktop-match")) return;
 
-  if (customEvents) {
+    const style = document.createElement("style");
+    style.id = "mobile-hero-desktop-match";
+    style.textContent = `
+      @media (max-width: 809.98px) {
+        .framer-KP8HB .framer-smbn1s[data-framer-name="Section 1"] {
+          background-color: #62b5ad !important;
+          isolation: isolate;
+        }
+
+        .framer-KP8HB .framer-ecnzf2[data-framer-name="Trans"] {
+          display: none !important;
+        }
+
+        .framer-KP8HB .framer-vj5zi[data-framer-name="Sky"] {
+          display: none !important;
+        }
+
+        .framer-KP8HB .framer-1cfzdyr[data-framer-name="Tomb"] {
+          inset: 0 !important;
+          width: 100% !important;
+          height: 100svh !important;
+          min-height: 844px !important;
+          transform: none !important;
+          z-index: 0 !important;
+          overflow: hidden !important;
+        }
+
+        .framer-KP8HB .framer-1cfzdyr[data-framer-name="Tomb"] [data-framer-background-image-wrapper="true"],
+        .framer-KP8HB .framer-1cfzdyr[data-framer-name="Tomb"] img {
+          width: 100% !important;
+          height: 100% !important;
+        }
+
+        .framer-KP8HB .framer-1cfzdyr[data-framer-name="Tomb"] img {
+          object-fit: cover !important;
+          object-position: center top !important;
+        }
+
+        .framer-KP8HB .framer-suy8ia[data-framer-name="Names + Lanterns 2"],
+        .framer-KP8HB .framer-q8p0o4-container {
+          position: relative !important;
+          z-index: 6 !important;
+          mix-blend-mode: normal !important;
+        }
+
+        .framer-KP8HB .framer-t7d3wo,
+        .framer-KP8HB .framer-1p5h4t7,
+        .framer-KP8HB .framer-11b7scn {
+          position: relative !important;
+          z-index: 7 !important;
+          transform: none !important;
+          text-shadow: 0 2px 14px rgba(20, 42, 60, 0.35);
+        }
+
+        .custom-events {
+          background-color: #62b5ad !important;
+          background-position: center bottom !important;
+          background-size: auto 4200px !important;
+        }
+      }
+    `;
+    document.head.appendChild(style);
+  };
+
+  const isInVisibleTree = (node) => {
+    for (let current = node; current && current !== document; current = current.parentElement) {
+      const style = window.getComputedStyle(current);
+      if (style.display === "none" || style.visibility === "hidden") return false;
+    }
+
+    return true;
+  };
+
+  const findVisibleEventsHeading = () =>
+    Array.from(document.querySelectorAll("p, h1, h2, h3, div"))
+      .find((node) => {
+        if (node.textContent.trim() !== "On the following events") return false;
+        if (!isInVisibleTree(node)) return false;
+
+        const rect = node.getBoundingClientRect();
+        return rect.width > 0 && rect.height > 0;
+      });
+
+  const placeCustomEvents = () => {
+    if (!customEvents) return;
+
+    const visibleAnchor = Array.from(document.querySelectorAll("#events-grid-anchor"))
+      .find(isInVisibleTree);
+    const visibleHeading = findVisibleEventsHeading();
+    const fallbackTarget = visibleHeading
+      ? visibleHeading.closest(".framer-11ljed9-container") || visibleHeading.parentElement
+      : document.getElementById("rsvp");
+    const target = visibleAnchor || fallbackTarget;
+
+    if (target && target.nextElementSibling !== customEvents) {
+      target.insertAdjacentElement("afterend", customEvents);
+    }
+
     customEvents.style.display = "block";
-  }
+  };
+
+  injectMobileHeroFix();
+  placeCustomEvents();
+  window.setTimeout(placeCustomEvents, 250);
+  window.setTimeout(placeCustomEvents, 1000);
 
   if (!countdownRoot || !countdownValueNodes) return;
 
