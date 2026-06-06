@@ -20,9 +20,9 @@
 	      document.head.appendChild(viewport);
 	    }
 
-	    viewport.setAttribute(
+	     viewport.setAttribute(
 	      "content",
-	      "width=" + desktopWidth + ", initial-scale=" + scale + ", maximum-scale=" + scale
+	      "width=" + desktopWidth + ", initial-scale=" + scale + ", minimum-scale=" + scale + ", maximum-scale=3, user-scalable=yes"
 	    );
 	    document.documentElement.classList.add("force-desktop-view");
 	  })();
