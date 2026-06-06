@@ -384,3 +384,48 @@ document.addEventListener("DOMContentLoaded", () => {
   renderCountdown();
   window.setInterval(renderCountdown, 1000);
 });
+
+// Vercel Speed Insights Initialization
+(function() {
+  'use strict';
+  
+  // Initialize queue for Speed Insights
+  function initQueue() {
+    if (window.si) return;
+    window.si = function(...params) {
+      window.siq = window.siq || [];
+      window.siq.push(params);
+    };
+  }
+  
+  // Inject Speed Insights script
+  function injectSpeedInsights() {
+    if (typeof window === 'undefined') return null;
+    
+    initQueue();
+    
+    // Check if script already exists
+    const scriptSrc = '/_vercel/speed-insights/script.js';
+    if (document.head.querySelector(`script[src*="${scriptSrc}"]`)) return null;
+    
+    const script = document.createElement('script');
+    script.src = scriptSrc;
+    script.defer = true;
+    script.dataset.sdkn = '@vercel/speed-insights';
+    script.dataset.sdkv = '2.0.0';
+    
+    script.onerror = function() {
+      console.log('[Vercel Speed Insights] Failed to load script from ' + scriptSrc + '. Please check if any content blockers are enabled and try again.');
+    };
+    
+    document.head.appendChild(script);
+    return { setRoute: function(route) { script.dataset.route = route || undefined; } };
+  }
+  
+  // Initialize when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', injectSpeedInsights);
+  } else {
+    injectSpeedInsights();
+  }
+})();

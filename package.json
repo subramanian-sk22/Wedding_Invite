@@ -1,0 +1,23 @@
+{
+  "name": "wedding-invite",
+  "version": "1.0.0",
+  "description": "South Indian Wedding Invitation Website",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/subramanian-sk22/Wedding_Invite.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/subramanian-sk22/Wedding_Invite/issues"
+  },
+  "homepage": "https://github.com/subramanian-sk22/Wedding_Invite#readme",
+  "dependencies": {
+    "@vercel/speed-insights": "^2.0.0"
+  }
+}
